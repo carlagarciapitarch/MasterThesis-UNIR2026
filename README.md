@@ -74,3 +74,17 @@ Se realiza un análisis de propiedades ADME (Absorption, Distribution, Metabolis
 
 ### **10_similitud_compuestos/**
 Finalmente, se llevó a cabo un análisis de enriquecimiento de huellas moleculares de los compuestos candidatos utilizando como referencia las moléculas empleadas en el entrenamiento de los modelos. Este análisis permitió identificar las subestructuras moleculares presentes en los candidatos que se encontraban enriquecidas en las moléculas clasificadas como activas en comparación con las inactivas. 
+
+## **Resultados**
+Los principales resultados obtenidos en el estudio incluyen:
+- La utilización final de 6279 entradas para la creación de los modelos de ML. Dichas entradas contienen la estructura SMILES del compuesto y el valor de actividad contra el virus del dengue.
+- Desarrollo de diez modelos de ML para la predicción de actividad frente al virus del dengue.
+- Selección del modelo SVM con kernel radial como el mejor modelo obtenido. Métricas de evaluación: exactitud = 0,811, valor F1 = 0,807, especificidad = 0,803, sensibilidad = 0,820 ROC-AUC = 0,884 y MCC = 0,623.
+- Identificación de los descriptores moleculares con mayor relevancia predictiva gracias al análisis SHAP.
+- Evaluación de la confiabilidad de las predicciones mediante AD.
+- Priorización de compuestos potencialmente interesantes para estudios posteriores. Concretamente, se obtuvieron 7 potenciales candidatos: Islatravir, Zabicipril, Sabizabulin, Trimethoprim, Ramipril, Combretastatin A-1 y Emvododstat.
+- Evaluación preliminar de propiedades ADME de los compuestos priorizados con resultados favorables para la mayoría de ellos. 
+- Huellas moleculares más presentes en moléculas activas en comparación con las inactivas.
+
+## **Reproducibilidad**
+Para reproducir el análisis, se recomienda crear un entorno virtual e instalar las dependencias indicadas en requirements.txt.
