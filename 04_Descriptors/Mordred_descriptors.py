@@ -11,36 +11,9 @@ from rdkit import Chem
 from mordred import Calculator, descriptors
 
 # Cargar datos
-df_pept = pd.read_excel("peptidos_con_0_1_5uM.xlsx")
 df_mol_peq = pd.read_excel("mol_peq_con_0_1_5uM.xlsx")
 
-df_pept = df_pept[["SMILES_canonico", "Actividad(0/1)"]]
 df_mol_peq = df_mol_peq[["SMILES_canonico", "Actividad(0/1)"]]
-
-#PEPTIDOS
-# Convertir SMILES → moléculas RDKit
-df_pept["RDKit"] = df_pept["SMILES_canonico"].apply(
-    lambda x: Chem.MolFromSmiles(x) if isinstance(x, str) else None
-)
-
-# Eliminar SMILES inválidos
-df_pept = df_pept[df_pept["RDKit"].notna()].copy()
-
-# Inicializar calculadora
-calc = Calculator(descriptors)
-
-# Calcular descriptores 
-desc = calc.map(df_pept["RDKit"])
-desc = pd.DataFrame([d.asdict() for d in desc])
-
-# Unir resultados
-df_pept_mordred = pd.concat(
-    [df_pept.reset_index(drop=True), desc.reset_index(drop=True)],
-    axis=1
-)
-
-# Guardar
-df_pept_mordred.to_excel("peptidos_con_descriptores_5uM.xlsx", index=False)
 
 
 #MOL PEQUEÑAS

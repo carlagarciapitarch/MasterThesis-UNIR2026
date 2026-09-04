@@ -7,19 +7,19 @@ Created on Sun Mar 29 17:49:29 2026
 """
 
 import pandas as pd
-# PEPTIDOS
-df = pd.read_excel("ADPDB_Data_Ready_to_merge.xlsx")
-df1 = pd.read_excel("AVPdb_Data_Ready_to_merge.xlsx")
-df2 = pd.read_excel("DRAVP_Data_Ready_to_merge.xlsx")
-#print(df)
+# # PEPTIDOS
+# df = pd.read_excel("ADPDB_Data_Ready_to_merge.xlsx")
+# df1 = pd.read_excel("AVPdb_Data_Ready_to_merge.xlsx")
+# df2 = pd.read_excel("DRAVP_Data_Ready_to_merge.xlsx")
+# #print(df)
 
-peptidos_db = pd.concat([df, df1, df2], axis=0)
-print(peptidos_db)
+# peptidos_db = pd.concat([df, df1, df2], axis=0)
+# print(peptidos_db)
 
-# Filtrar filas donde columnas estén vacias
-df_peptidos_limpio = peptidos_db.dropna(subset=["SMILES", "IC50/EC50(microM)"])
+# # Filtrar filas donde columnas estén vacias
+# df_peptidos_limpio = peptidos_db.dropna(subset=["SMILES", "IC50/EC50(microM)"])
 
-df_peptidos_limpio.to_excel("df_peptidos.xlsx", index=False)
+# df_peptidos_limpio.to_excel("df_peptidos.xlsx", index=False)
 
 
 #MOLECULAS PEQUEÑAS
